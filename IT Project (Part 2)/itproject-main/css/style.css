@@ -1,0 +1,455 @@
+/*font size*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+/*theme color*/
+:root{
+    --blue: #03a9f4;
+}
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; 
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+/*selection- highlight*/
+*::selection{
+    background: var(--blue);
+    color: #fff;
+}
+
+/*html size*/
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+body{
+    background: #f7f7f7;
+}
+
+section{
+    padding: 2rem 9%;
+}
+
+/*heading center and color*/
+.heading{
+    text-align: center;
+    font-size: 3.5rem;
+    padding: 1rem;
+    color: #666;
+}
+
+.heading span{
+    color: var(--blue);
+}
+
+/*navigation bar*/
+header{
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2rem 9%;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+/*navigation bar: left*/
+header .language{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: #666;
+}
+
+header .language i{
+    color: var(--blue);
+}
+
+/*navigation bar: right*/
+header .navbar a{
+    font-size: 2rem;
+    margin-left: 2rem;
+    color: #666;
+}
+
+header .navbar a:hover{
+    color: var(--blue);
+}
+
+/*menu-bar: hidden*/
+#menu-bar{
+    font-size: 3rem;
+    cursor: pointer;
+    color: #666;
+    border: .1rem solid #666;
+    border-radius: .3rem;
+    padding: .5rem 1.5rem;
+    display: none;
+}
+
+/*convert home*/ /*include hotel, flight booking, about*/
+.home{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    min-height: 100vh;
+    align-items: center;
+    background: url(../css/infor.png) no-repeat;
+    background: url(../css/hotel.jpg) no-repeat;
+    background: url(../css/fly.png) no-repeat;
+    background: url(../css/about.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home .content{
+    flex: 1 1 40rem;
+    padding-top: 6.5rem;
+}
+
+.home .image{
+    flex: 1 1 40rem;
+}
+
+.home .image img{
+    width: 100%;
+    padding: 1rem;
+    animation: float 3s linear infinite;
+}
+
+/*img floating*/
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+
+    50%{
+        transform: translateY(3rem);
+    }
+}
+
+/*convert home: txt*/
+.home .content h3{
+    font-size: 5rem;
+    color: #333;
+}
+
+.home .content p{
+    font-size: 1.7rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+/*button*/ /*booking and flight*/
+.btn{
+    display: inline-block;
+    padding: .8rem 3rem;
+    border: .2rem solid var(--blue);
+    color: var(--blue);
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    margin-top: 1rem;
+}
+  
+.btn::before{
+    content: '';
+    position: absolute;
+    top: 0; 
+    right: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--blue);
+    transition: .3s linear;
+    z-index: -1;
+}
+  
+.btn:hover::before{
+    width: 100%;
+    left: 0;
+}
+  
+.btn:hover{
+    color: #fff;
+}
+
+/*convert*/
+.currency-row-outer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+input, select{
+    color: #363636;
+    font-size: 1.9rem;
+    height: 1.9em;
+    border-radius: 12px;
+    max-width: 100%;
+    width: calc(100% - 10px);
+    margin: auto;
+    outline: 0;
+    background: #fff;
+    border-color: #dbdbdb;
+    padding-left: 10px;
+    border: 1px solid #00000057;
+    box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
+    -webkit-appearance: none;
+}
+
+.field.grid-50-50{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+}
+
+.currency-converter .colmun{
+    margin-bottom: 15px;
+}
+
+select.currency{
+    border-color: #3273dc;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    font-size: 1.3em;
+    max-width: 100%;
+    outline: 0;
+    display: block;
+}
+
+.currency-converter .select{
+    position: relative;
+    height: 100%;
+}
+
+.currency-converter .select:after{
+    transform: rotate(-45deg);
+    transform-origin: center;
+    content: "";
+    border: 3px solid rgba(0, 0, 0, 0);
+    border-radius: 2px;
+    border-top: 0;
+    border-right: 0;
+    display: block;
+    height: 0.525em;
+    width: 0.525em;
+    z-index: 4;
+    position: absolute;
+    top: 50%;
+    right: 1.125em;
+    margin-top: -0.4375em;
+}
+
+.select:not(:hover)::after{
+    border-color: #3273dc;
+}
+
+.select:hover::after{
+    border-color: #363636;
+}
+
+/*popular of convert*/
+.flag{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.flag .box{
+    flex: 1 1 25rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.flag .box img{
+    border-radius: 50%;
+    border: 1rem solid #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+.flag .box h3{
+    font-size: 2rem;
+    color: #333;
+    padding: 1rem;
+}
+
+/*language*/
+.language .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+  
+.language .box-container .box{
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    border: .1rem solid rgba(0,0,0,.3);
+    border-radius: .5rem;
+    text-align: center;
+    flex: 1 1 30rem;
+    position: relative;
+}
+  
+.language .box-container .box img{
+    height: 25rem;
+    object-fit: cover;
+    width: 100%;
+    border-radius: .5rem;
+}
+  
+.language .box-container .box h3{
+    color: #333;
+    font-size: 2.5rem;
+    padding-top: 1rem;
+}
+
+/*about*/
+.about .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+  
+.about .box-container .box{
+    text-align: center;
+    padding: 2rem;
+    border: 1rem solid #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
+    border-radius: .5rem;
+    flex: 1 1 30rem;
+    background: #333;
+    margin-top: 6rem;
+}
+  
+.about .box-container .box img{
+    height: 12rem;
+    width: 12rem;
+    border-radius: 50%;
+    border: 1rem solid #fff;
+    margin-top: -8rem;
+    object-fit: cover;
+}
+  
+.about .box-container .box h3{
+    font-size: 2.5rem;
+    color: #fff;
+    padding: .5rem 0;
+}
+
+.about .box-container .box h4{
+    font-size: 2.5rem;
+    color: #fff;
+    padding: .5rem 0;
+}
+  
+.about .box-container .box p{
+    font-size: 1.5rem;
+    color: #eee;
+    padding: 1rem 0;
+}
+
+/*footer*/
+.footer{
+    background: rgb(20, 20, 20);
+    text-align: center;
+}
+
+.footer .credit{
+    padding: 2.5rem 1rem;
+    color: #fff;
+    font-weight: normal;
+    font-size: 1.7rem;
+}
+
+.footer .credit span{
+    color: var(--blue);
+}
+
+/*scroll top button*/
+#scroll-top{
+    position: fixed;
+    top: -120%;
+    right: 2rem;
+    padding: .5rem 1.5rem;
+    font-size: 4rem;
+    background: var(--blue);
+    color: #fff;
+    border-radius: .5rem;
+    transition: 1s linear;
+    z-index: 1000;
+}
+
+#scroll-top.active{
+    top: calc(100% - 12rem)
+}
+
+
+/*media queries*/
+@media(max-width:991px){
+    html{
+        font-size: 55%;
+    }
+
+    header{
+        padding: 2rem;
+    }
+
+    section{
+        padding: 2rem;
+    }
+}
+
+@media(max-width:768px){
+    #menu-bar{
+        display: initial;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%; 
+        left: 0; 
+        right: 0;
+        background: #f7f7f7;
+        border-top: .1rem solid rgba(0,0,0,.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    header .navbar a{
+        margin: 1.5rem;
+        padding: 1.5rem;
+        display: block;
+        border: .2rem solid rgba(0,0,0,.1);
+        border-left: .5rem solid var(--red);
+        background: #fff;
+    }
+}
+
+@media(max-width:450px){
+    html{
+        font-size: 50%;
+    }
+}

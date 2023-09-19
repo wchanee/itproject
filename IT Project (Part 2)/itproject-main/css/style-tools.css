@@ -1,0 +1,285 @@
+/*font size*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+/*theme color*/
+:root{
+    --blue: #03a9f4;
+}
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; 
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+/*selection*/
+*::selection{
+    background: var(--blue);
+    color: #fff;
+}
+
+/*html size*/
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+body{
+    background:#f7f7f7;
+    height: 100vh;
+    width: 100vw;
+}
+
+/*heading center and color*/
+.heading{
+    text-align: center;
+    font-size: 3.5rem;
+    padding: 1rem;
+    color: #666;
+}
+
+.heading span{
+    color: var(--blue);
+}
+
+/*navigation bar*/
+header{
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2rem 9%;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+/*navigation bar: left*/
+header .language{
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+header .language i{
+    padding-right: .5rem;
+    color: var(--blue);
+}
+
+/*navigation bar: right*/
+header .navbar a{
+    font-size: 2rem;
+    margin-left: 2rem;
+    color: #666;
+}
+
+header .navbar a:hover{
+    color: var(--blue);
+}
+
+/*menu-bar: hidden*/
+#menu-bar{
+    font-size: 3rem;
+    cursor: pointer;
+    color: #666;
+    border: .1rem solid #666;
+    border-radius: .3rem;
+    padding: .5rem 1.5rem;
+    display: none;
+}
+
+/*calculator*/
+#container{
+	width: 280px;
+	height: 570px;
+	margin: 35px auto;
+}
+
+#calculator{
+	width: 330px;
+	height: 520px;
+	background-color: var(--blue);
+	margin: 0 auto;
+	top: 70px;
+	position: relative;
+	border-radius: 15px;
+}
+
+#result{
+	height: 120px;
+}
+
+#history{
+	text-align: right;
+	height: 20px;
+	margin: 0 20px;
+	padding-top: 20px;
+	font-size: 15px;
+	color: #000;
+}
+
+#output{
+	text-align: right;
+	height: 60px;
+	margin: 10px 20px;
+	font-size: 30px;
+}
+
+#keyboard{
+	height: 400px;
+}
+
+.operator, .number, .empty{
+	width: 50px;
+	height: 50px;
+	margin: 15px;
+	float: left;
+	border-radius: 50%;
+	border-width: 0;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.number{
+	background-color: #a1cee4;
+}
+
+.empty{
+    background-color: var(--blue);
+}
+
+.number, .operator{
+	cursor: pointer;
+}
+
+.operator:active, .number:active{
+	font-size: 13px;
+}
+
+.operator:focus, .number:focus, .empty:focus{
+	outline: 0;
+}
+
+button:nth-child(4){
+	font-size: 20px;
+	background-color: #7820b2;
+}
+
+button:nth-child(8){
+	font-size: 20px;
+	background-color: #ffa500;
+}
+
+button:nth-child(12){
+	font-size: 20px;
+	background-color: #f08080;
+}
+
+button:nth-child(16){
+	font-size: 20px;
+	background-color: #7d93e0;
+}
+
+button:nth-child(20){
+	font-size: 20px;
+	background-color: #77af95;
+}
+
+/*footer*/
+.footer{
+    background: #000;
+    text-align: center;
+}
+
+.footer .share{
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer .credit{
+    padding: 2.5rem 1rem;
+    color: #fff;
+    font-weight: normal;
+    font-size: 2rem;
+}
+
+.footer .credit span{
+    color: var(--blue);
+}
+
+/*scroll top button*/
+#scroll-top{
+    position: fixed;
+    top: -120%;
+    right: 2rem;
+    padding: .5rem 1.5rem;
+    font-size: 4rem;
+    background: var(--blue);
+    color: #fff;
+    border-radius: .5rem;
+    transition: 1s linear;
+    z-index: 1000;
+}
+
+#scroll-top.active{
+    top: calc(100% - 12rem)
+}
+
+/*media queries*/
+@media(max-width:991px){
+    html{
+        font-size: 55%;
+    }
+
+    header{
+        padding: 2rem;
+    }
+}
+
+@media(max-width:768px){
+    #menu-bar{
+        display: initial;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%; 
+        left: 0; 
+        right: 0;
+        background: #f7f7f7;
+        border-top: .1rem solid rgba(0,0,0,.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    header .navbar a{
+        margin: 1.5rem;
+        padding: 1.5rem;
+        display: block;
+        border: .2rem solid rgba(0,0,0,.1);
+        border-left: .5rem solid var(--blue);
+        background: #fff;
+    }
+
+}
+
+@media(max-width:450px){
+    html{
+        font-size: 50%;
+    }
+}
